@@ -1,3 +1,12 @@
+libpthread-stubs (0.1-2.oi1) unstable; urgency=low
+
+  * First build for OpenInkpot:
+    - Maintainer and Uploaders adapted
+    - .pc file moved to /usr/lib/pkgconfig from /usr/share/pkgconfig to
+      facilitate cross-compilation
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Sat, 24 May 2008 02:03:27 +0700
+
 libpthread-stubs (0.1-2) unstable; urgency=low
 
   * Add XS-Vcs-Git and XS-Vcs-Browser fields.
