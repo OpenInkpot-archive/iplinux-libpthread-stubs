@@ -3,6 +3,7 @@ Priority: optional
 Section: libdevel
 Maintainer: Mikhail Gusarov <dottedmag@dottedmag.net>
 Build-Depends: cdbs (>= 0.4.40), debhelper (>= 5.0.0)
+XCS-Cross-Host-Build-Depends: cdbs, debhelper
 Standards-Version: 3.7.2
 XS-Vcs-Git: git://anongit.freedesktop.org/git/xcb/pthread-stubs
 XS-Vcs-Browser: http://gitweb.freedesktop.org/?p=xcb/pthread-stubs.git
