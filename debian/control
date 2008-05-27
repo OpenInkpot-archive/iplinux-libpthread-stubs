@@ -9,7 +9,7 @@ XS-Vcs-Git: git://anongit.freedesktop.org/git/xcb/pthread-stubs
 XS-Vcs-Browser: http://gitweb.freedesktop.org/?p=xcb/pthread-stubs.git
 
 Package: libpthread-stubs0
-Section: libs
+Section: core
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: pthread stubs not provided by native libc

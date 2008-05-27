@@ -1,6 +1,7 @@
 libpthread-stubs (0.1-2.oi2) unstable; urgency=low
 
   * debian/control: XCS-Cross-* added
+  * Sections changed to Slind ones
 
  -- Mikhail Gusarov <dottedmag@dottedmag.net>  Tue, 27 May 2008 14:18:45 +0700
 
