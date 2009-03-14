@@ -1,0 +1,26 @@
+#!/usr/bin/make -f
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/class/autotools.mk
+
+DEB_DH_INSTALL_SOURCEDIR=debian/tmp
+DEB_MAKE_CLEAN_TARGET := clean
+DEB_CONFIGURE_SCRIPT := ./autogen.sh
+
+debian/copyright: debian/copyright.debian COPYING
+	cat $+ > $@
+
+clean::
+	[ ! -f Makefile ] || make distclean
+	-rm -f debian/copyright
+
+common-install-prehook-arch common-install-prehook-indep:: debian/copyright
+
+install/libpthread-stubs0::
+	if test -f debian/tmp/usr/lib/libpthread-stubs.so.0.0.0; then dh_install -p$(cdbs_curpkg) debian/tmp/usr/lib/libpthread-stubs.so.0.0.0; fi
+	if test -L debian/tmp/usr/lib/libpthread-stubs.so.0; then dh_install -p$(cdbs_curpkg) debian/tmp/usr/lib/libpthread-stubs.so.0; fi
+
+install/libpthread-stubs0-dev::
+	if test -f debian/tmp/usr/lib/libpthread-stubs.a; then dh_install -p$(cdbs_curpkg) debian/tmp/usr/lib/libpthread-stubs.a; fi
+	if test -L debian/tmp/usr/lib/libpthread-stubs.so; then dh_install -p$(cdbs_curpkg) debian/tmp/usr/lib/libpthread-stubs.so; fi
+	dh_install -p$(cdbs_curpkg) debian/tmp/usr/lib/pkgconfig/pthread-stubs.pc usr/lib/pkgconfig/

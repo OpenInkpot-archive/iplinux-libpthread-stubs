@@ -1,0 +1,40 @@
+Source: libpthread-stubs
+Priority: optional
+Section: core
+Maintainer: Mikhail Gusarov <dottedmag@dottedmag.net>
+Build-Depends: cdbs (>= 0.4.40), cdbs-embedded, debhelper (>= 7), autoconf, automake, libtool
+XCS-Cross-Host-Build-Depends: cdbs (>= 0.4.40), cdbs-embedded, debhelper (>= 7), autoconf, automake, libtool
+Standards-Version: 3.7.2
+XS-Vcs-Git: git://anongit.freedesktop.org/git/xcb/pthread-stubs
+XS-Vcs-Browser: http://gitweb.freedesktop.org/?p=xcb/pthread-stubs.git
+
+Package: libpthread-stubs0
+Section: core
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: pthread stubs not provided by native libc
+ This library provides weak aliases for pthread functions not provided
+ in libc or otherwise available by default.  Libraries like libxcb rely
+ on pthread stubs to use pthreads optionally, becoming thread-safe when
+ linked to libpthread, while avoiding any performance hit when running
+ single-threaded. libpthread-stubs supports this behavior even on
+ platforms which do not supply all the necessary pthread stubs.  On
+ platforms which already supply all the necessary pthread stubs, this
+ package has no content.
+
+Package: libpthread-stubs0-dev
+Section: libdevel
+Architecture: any
+Depends: libpthread-stubs0 (= ${binary:Version})
+Description: pthread stubs not provided by native libc, development files
+ This library provides weak aliases for pthread functions not provided
+ in libc or otherwise available by default.  Libraries like libxcb rely
+ on pthread stubs to use pthreads optionally, becoming thread-safe when
+ linked to libpthread, while avoiding any performance hit when running
+ single-threaded. libpthread-stubs supports this behavior even on
+ platforms which do not supply all the necessary pthread stubs.
+ .
+ On platforms which already supply all the necessary pthread stubs, this
+ package ships only the pkg-config file pthread-stubs.pc, to allow
+ libraries to unconditionally express a dependency on pthread-stubs and
+ still obtain correct behavior.
